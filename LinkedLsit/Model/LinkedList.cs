@@ -111,25 +111,26 @@ namespace LinkedLsit.Model
         {
             if (Head != null)
             {
-                var item = new Item<T>(data);
                 var current = Head;
-                while(current != null)
-                if (current.Equals(target))
+                while (current != null)
                 {
-                    item.Next = Head.Next;
-                    Head.Next = item;
-                    Count++;
-                    return;
-                }
-                else
-                {
-                    current = current.Next;
+                    if (current.Equals(target))
+                    {
+                        var item = new Item<T>(data);
+                        item.Next = Head.Next;
+                        Head.Next = item;
+                        Count++;
+                        return;
+                    }
+                    else
+                    {
+                        current = current.Next;
+                    }
                 }
             }
             else
             {
-                SetHeadAndTail(target);
-                Add(data);
+
             }
         }
 
